@@ -1,20 +1,33 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
+import { createStore, compose } from 'redux';
+
+import { RootReducer } from '@store/reducers/index';
+
+import { NavigationProvider } from '@app/context/NavigationContext/NavigationContext';
+
 import ReferenceUI from '@app/components/ReferenceUI/ReferenceUI';
-import Component from '@app/components/Component/Component';
+import Products from '@app/components/Products/Products';
 
 import './styles/App.scss';
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(RootReducer, composeEnhancers());
+
 const App = () => {
   return (
-    <>
+    <Provider store={store}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route
             path="/"
             render={(props) => (
-              <Component text="Hello cruel world!" {...props} />
+              <NavigationProvider>
+                <Products text="Hello cruel world!" {...props} />
+              </NavigationProvider>
             )}
             exact
           />
@@ -25,7 +38,7 @@ const App = () => {
           />
         </Switch>
       </BrowserRouter>
-    </>
+    </Provider>
   );
 };
 
