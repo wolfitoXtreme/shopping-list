@@ -2,7 +2,7 @@
   "grocery": [
     {
       "id": "41fd4fd9-95c7-4809-96db-a147d352fdbb",
-      "image_url": "https://dummyimage.com/400x400/28200e/000&text=Unbranded Metal Chair",
+      "image_url": "https://images.pexels.com/photos/2866796/pexels-photo-2866796.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 8,
       "productName": "Unbranded Metal Chair",
       "price": 43,
@@ -11,7 +11,7 @@
     },
     {
       "id": "20cc33f1-223b-4cf0-878d-fdedb3f60b56",
-      "image_url": "https://dummyimage.com/400x400/2ee9f7/000&text=Handcrafted Metal Towels",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 41,
       "productName": "Handcrafted Metal Towels",
       "price": 98,
@@ -20,7 +20,7 @@
     },
     {
       "id": "ab284424-8e46-4a3e-8e13-e179b0ab8bb5",
-      "image_url": "https://dummyimage.com/400x400/4de5d5/000&text=Awesome Cotton Soap",
+      "image_url": "https://images.pexels.com/photos/6858632/pexels-photo-6858632.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 47,
       "productName": "Awesome Cotton Soap",
       "price": 66,
@@ -29,7 +29,7 @@
     },
     {
       "id": "c34287bf-9cb7-40a7-ad07-6534e45a6868",
-      "image_url": "https://dummyimage.com/400x400/bc27b5/000&text=Gorgeous Frozen Chair",
+      "image_url": "https://images.pexels.com/photos/892649/pexels-photo-892649.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 28,
       "productName": "Gorgeous Frozen Chair",
       "price": 47,
@@ -38,7 +38,7 @@
     },
     {
       "id": "41fb4f07-22fd-4ef6-b23c-1ac022b57d11",
-      "image_url": "https://dummyimage.com/400x400/f04d95/000&text=Incredible Fresh Ball",
+      "image_url": "https://images.pexels.com/photos/3750640/pexels-photo-3750640.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 36,
       "productName": "Incredible Fresh Ball",
       "price": 71,
@@ -47,7 +47,7 @@
     },
     {
       "id": "b590e450-1e0c-4344-92b8-e1f6cc260587",
-      "image_url": "https://dummyimage.com/400x400/adca70/000&text=Fantastic Wooden Sausages",
+      "image_url": "https://images.pexels.com/photos/6666403/pexels-photo-6666403.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 0,
       "productName": "Fantastic Wooden Sausages",
       "price": 1,
@@ -56,7 +56,7 @@
     },
     {
       "id": "1db18081-575b-47b2-b0d8-395314a6b327",
-      "image_url": "https://dummyimage.com/400x400/c49fd9/000&text=Gorgeous Rubber Salad",
+      "image_url": "https://images.pexels.com/photos/3780477/pexels-photo-3780477.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 44,
       "productName": "Gorgeous Rubber Salad",
       "price": 62,
@@ -65,7 +65,7 @@
     },
     {
       "id": "7eca1ea3-0bf6-4b00-bb6b-e08ba834dd4e",
-      "image_url": "https://dummyimage.com/400x400/6b90de/000&text=Rustic Soft Table",
+      "image_url": "https://images.pexels.com/photos/7736775/pexels-photo-7736775.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 48,
       "productName": "Rustic Soft Table",
       "price": 49,
@@ -74,7 +74,7 @@
     },
     {
       "id": "57483e83-1378-42f3-8d40-e4d75e4ff767",
-      "image_url": "https://dummyimage.com/400x400/93182/000&text=Fantastic Fresh Car",
+      "image_url": "https://images.pexels.com/photos/2739274/pexels-photo-2739274.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 47,
       "productName": "Fantastic Fresh Car",
       "price": 23,
@@ -83,7 +83,7 @@
     },
     {
       "id": "11a7aee9-d712-4395-9c35-bde70c9f0171",
-      "image_url": "https://dummyimage.com/400x400/5be5c9/000&text=Awesome Plastic Gloves",
+      "image_url": "https://images.pexels.com/photos/2697787/pexels-photo-2697787.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 46,
       "productName": "Awesome Plastic Gloves",
       "price": 71,
@@ -92,7 +92,7 @@
     },
     {
       "id": "7ac6d979-0771-4b8c-809d-eb8aa36be7f4",
-      "image_url": "https://dummyimage.com/400x400/61cc38/000&text=Awesome Plastic Towels",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 2,
       "productName": "Awesome Plastic Towels",
       "price": 93,
@@ -101,7 +101,7 @@
     },
     {
       "id": "ea46848e-f2fe-4d8f-a0b2-c30c0f1d2417",
-      "image_url": "https://dummyimage.com/400x400/f02ef0/000&text=Tasty Wooden Car",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 10,
       "productName": "Tasty Wooden Car",
       "price": 90,
@@ -110,7 +110,7 @@
     },
     {
       "id": "031806fb-89b6-4790-a889-5c0fa94d380a",
-      "image_url": "https://dummyimage.com/400x400/513c52/000&text=Handcrafted Granite Pants",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 25,
       "productName": "Handcrafted Granite Pants",
       "price": 4,
@@ -119,7 +119,7 @@
     },
     {
       "id": "9dbcefef-804d-483d-8e1c-28941866a85c",
-      "image_url": "https://dummyimage.com/400x400/8100ab/000&text=Practical Granite Shoes",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 29,
       "productName": "Practical Granite Shoes",
       "price": 45,
@@ -128,7 +128,7 @@
     },
     {
       "id": "1b1caaba-60e2-432b-97f8-d7c8f8f94bbc",
-      "image_url": "https://dummyimage.com/400x400/d8a4c7/000&text=Handmade Granite Cheese",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 45,
       "productName": "Handmade Granite Cheese",
       "price": 95,
@@ -137,7 +137,7 @@
     },
     {
       "id": "cf5f9cee-b1f7-4797-96b1-347a85f12bf4",
-      "image_url": "https://dummyimage.com/400x400/531d3c/000&text=Handcrafted Fresh Salad",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 8,
       "productName": "Handcrafted Fresh Salad",
       "price": 19,
@@ -146,7 +146,7 @@
     },
     {
       "id": "4bf36350-05be-40f7-a5c2-f72554aa99ba",
-      "image_url": "https://dummyimage.com/400x400/415922/000&text=Licensed Concrete Gloves",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 37,
       "productName": "Licensed Concrete Gloves",
       "price": 68,
@@ -155,7 +155,7 @@
     },
     {
       "id": "a203b76b-2ed7-4a5c-aa2a-b02d94027edd",
-      "image_url": "https://dummyimage.com/400x400/f613cf/000&text=Fantastic Frozen Shoes",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 23,
       "productName": "Fantastic Frozen Shoes",
       "price": 22,
@@ -164,7 +164,7 @@
     },
     {
       "id": "8b2d3819-36e7-494f-98e0-6cfb1d94190e",
-      "image_url": "https://dummyimage.com/400x400/7ba9c2/000&text=Gorgeous Metal Tuna",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 20,
       "productName": "Gorgeous Metal Tuna",
       "price": 73,
@@ -173,7 +173,7 @@
     },
     {
       "id": "30626b41-b9be-4f29-8e38-355ab84877e9",
-      "image_url": "https://dummyimage.com/400x400/9c53f2/000&text=Awesome Plastic Pants",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 42,
       "productName": "Awesome Plastic Pants",
       "price": 69,
@@ -182,7 +182,7 @@
     },
     {
       "id": "2793ee76-d05e-4995-9003-70b6579c121f",
-      "image_url": "https://dummyimage.com/400x400/d6cf25/000&text=Licensed Metal Bacon",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 23,
       "productName": "Licensed Metal Bacon",
       "price": 39,
@@ -191,7 +191,7 @@
     },
     {
       "id": "a9d5c9f6-2687-46fc-ac51-a02c76008d8c",
-      "image_url": "https://dummyimage.com/400x400/f95fbc/000&text=Generic Frozen Mouse",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 36,
       "productName": "Generic Frozen Mouse",
       "price": 1,
@@ -200,7 +200,7 @@
     },
     {
       "id": "70382c65-4b5b-4e36-98d5-b857fc2b1017",
-      "image_url": "https://dummyimage.com/400x400/bcfeb0/000&text=Fantastic Granite Chips",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 16,
       "productName": "Fantastic Granite Chips",
       "price": 42,
@@ -209,7 +209,7 @@
     },
     {
       "id": "d5a88de7-4e07-413f-a834-3e01e5c95dc1",
-      "image_url": "https://dummyimage.com/400x400/65b2d7/000&text=Handmade Plastic Fish",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 32,
       "productName": "Handmade Plastic Fish",
       "price": 2,
@@ -218,7 +218,7 @@
     },
     {
       "id": "98f3dcd8-331d-42f0-b22b-bc892ee787d8",
-      "image_url": "https://dummyimage.com/400x400/552245/000&text=Ergonomic Concrete Bacon",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 47,
       "productName": "Ergonomic Concrete Bacon",
       "price": 28,
@@ -227,7 +227,7 @@
     },
     {
       "id": "ab2c61ad-9b43-4131-87b6-2f2d40490ccf",
-      "image_url": "https://dummyimage.com/400x400/bdb5d8/000&text=Intelligent Concrete Ball",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 24,
       "productName": "Intelligent Concrete Ball",
       "price": 81,
@@ -236,7 +236,7 @@
     },
     {
       "id": "cd8e7faa-aff2-4f10-8b7a-3230bc741086",
-      "image_url": "https://dummyimage.com/400x400/f3b56c/000&text=Ergonomic Cotton Chicken",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 15,
       "productName": "Ergonomic Cotton Chicken",
       "price": 53,
@@ -245,7 +245,7 @@
     },
     {
       "id": "27e066ab-9766-46ee-abf4-934adebde3a4",
-      "image_url": "https://dummyimage.com/400x400/c3a6a4/000&text=Gorgeous Fresh Pizza",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 36,
       "productName": "Gorgeous Fresh Pizza",
       "price": 37,
@@ -254,7 +254,7 @@
     },
     {
       "id": "3e113de2-d32e-4d0c-8bee-6bbdd5b491df",
-      "image_url": "https://dummyimage.com/400x400/2b3bbc/000&text=Fantastic Steel Keyboard",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 9,
       "productName": "Fantastic Steel Keyboard",
       "price": 75,
@@ -263,7 +263,7 @@
     },
     {
       "id": "5279ae0b-e40d-4af9-9233-865e8180caa5",
-      "image_url": "https://dummyimage.com/400x400/b37a2e/000&text=Gorgeous Concrete Salad",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 30,
       "productName": "Gorgeous Concrete Salad",
       "price": 38,
@@ -272,7 +272,7 @@
     },
     {
       "id": "8390b469-cc5d-46b6-825e-76c7d5d1a884",
-      "image_url": "https://dummyimage.com/400x400/b93941/000&text=Generic Wooden Hat",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 26,
       "productName": "Generic Wooden Hat",
       "price": 59,
@@ -281,7 +281,7 @@
     },
     {
       "id": "366867c5-f453-485f-8e2a-33127f0bdc2b",
-      "image_url": "https://dummyimage.com/400x400/65a980/000&text=Handmade Cotton Ball",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 37,
       "productName": "Handmade Cotton Ball",
       "price": 55,
@@ -290,7 +290,7 @@
     },
     {
       "id": "d159bd16-fb97-4a06-9f6f-945993db6ae4",
-      "image_url": "https://dummyimage.com/400x400/355fce/000&text=Handmade Cotton Towels",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 48,
       "productName": "Handmade Cotton Towels",
       "price": 90,
@@ -299,7 +299,7 @@
     },
     {
       "id": "cce0f9b9-a830-4100-86b1-f73d1165c1d7",
-      "image_url": "https://dummyimage.com/400x400/d9c1c6/000&text=Licensed Frozen Computer",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 21,
       "productName": "Licensed Frozen Computer",
       "price": 28,
@@ -308,7 +308,7 @@
     },
     {
       "id": "73b0bab3-7b57-4856-96af-ae4af1e39f4b",
-      "image_url": "https://dummyimage.com/400x400/930aca/000&text=Gorgeous Granite Table",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 49,
       "productName": "Gorgeous Granite Table",
       "price": 34,
@@ -317,7 +317,7 @@
     },
     {
       "id": "2bf3f4da-4d88-45f5-a5c9-d9d15295a4e9",
-      "image_url": "https://dummyimage.com/400x400/ff9a44/000&text=Licensed Steel Bacon",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 36,
       "productName": "Licensed Steel Bacon",
       "price": 9,
@@ -326,7 +326,7 @@
     },
     {
       "id": "b3b0714d-445d-4ec9-a8a2-d75b198abcb9",
-      "image_url": "https://dummyimage.com/400x400/5eba3b/000&text=Fantastic Concrete Table",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 40,
       "productName": "Fantastic Concrete Table",
       "price": 91,
@@ -335,7 +335,7 @@
     },
     {
       "id": "b06f4d9d-3cba-455f-8f44-d3a2459da6e3",
-      "image_url": "https://dummyimage.com/400x400/ebc971/000&text=Rustic Cotton Bacon",
+      "image_url": "https://images.pexels.com/photos/7599097/pexels-photo-7599097.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
       "stock": 40,
       "productName": "Rustic Cotton Bacon",
       "price": 85,

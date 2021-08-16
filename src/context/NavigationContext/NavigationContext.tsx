@@ -1,15 +1,28 @@
 import React from 'react';
 import { useState } from 'react';
 
+import { navigationPage } from '@app/types/types';
+// import useFetch from '@app/hooks/useFetch';
+
 export const NavigationContext = React.createContext<{
-  currentPage: number;
-  setCurrentPage: (x: number) => void;
-}>({ currentPage: 1, setCurrentPage: (currentPage) => currentPage });
+  navPage: navigationPage;
+  setNavPage: (navPage: navigationPage) => void;
+}>({
+  navPage: navigationPage.PRODUCTS,
+  setNavPage: (navPage) => navPage
+});
 
 export const NavigationProvider: React.FC = ({ children }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [navPage, setNavPage] = useState(navigationPage.PRODUCTS);
+  // const { loading, data, error } = useFetch();
+
   return (
-    <NavigationContext.Provider value={{ currentPage, setCurrentPage }}>
+    <NavigationContext.Provider
+      value={{
+        navPage,
+        setNavPage
+      }}
+    >
       {children}
     </NavigationContext.Provider>
   );

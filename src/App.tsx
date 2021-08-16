@@ -8,8 +8,8 @@ import { RootReducer } from '@store/reducers/index';
 
 import { NavigationProvider } from '@app/context/NavigationContext/NavigationContext';
 
+import Main from '@app/components/Main';
 import ReferenceUI from '@app/components/ReferenceUI/ReferenceUI';
-import Products from '@app/components/Products/Products';
 
 import './styles/App.scss';
 
@@ -26,7 +26,7 @@ const App = () => {
             path="/"
             render={(props) => (
               <NavigationProvider>
-                <Products text="Hello cruel world!" {...props} />
+                <Main {...props} />
               </NavigationProvider>
             )}
             exact

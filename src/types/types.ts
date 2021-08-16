@@ -9,9 +9,12 @@ export interface FontInt {
   fontName: string;
   fontVariants: FontVariantType[];
 }
-export interface ProductsStateType {
-  productsReducer: { products: ProductType[] };
-}
+
+export type PagesType = {
+  totalPages?: number;
+  currentPage: number;
+  previousPage?: number;
+};
 
 export type ProductType = {
   id: number;
@@ -26,3 +29,27 @@ export type ProductType = {
 export type ProductsListType = {
   products: ProductType[];
 };
+
+export interface ProductsStateType {
+  productsReducer: {
+    productsList: {
+      products: ProductType[];
+      pages: PagesType;
+    };
+  };
+}
+
+export interface FavoritesStateType {
+  favoritesReducer: {
+    favoritesList: {
+      products: ProductType[];
+      pages: PagesType;
+    };
+  };
+}
+
+export enum navigationPage {
+  PRODUCTS = 'products',
+  FAVORITES = 'favorites',
+  CART = 'cart'
+}

@@ -3,9 +3,9 @@ import * as storeActions from '@store/actions/actions';
 import { ProductType, PagesType } from '@app/types/types';
 
 const initialState: {
-  productsList: { products: ProductType[]; pages: PagesType };
+  favoritesList: { products: ProductType[]; pages: PagesType };
 } = {
-  productsList: {
+  favoritesList: {
     products: [],
     pages: {
       totalPages: undefined,
@@ -19,29 +19,29 @@ const reducer = (
   state = initialState,
   action: { type: string; value: any }
 ) => {
-  const listProducts = () => {
+  const listFavorites = () => {
     return {
       ...state,
-      productsList: {
-        ...state.productsList,
-        products: state.productsList.products.concat(action.value)
+      favoritesList: {
+        ...state.favoritesList,
+        products: state.favoritesList.products.concat(action.value)
       }
     };
   };
 
-  const pagingProducts = () => {
+  const pagingFavorites = () => {
     return {
       ...state,
-      productsList: {
-        ...state.productsList,
+      favoritesList: {
+        ...state.favoritesList,
         pages: action.value
       }
     };
   };
 
   const runAction = {
-    [storeActions.PRODUCTS_LISTING]: listProducts,
-    [storeActions.PRODUCTS_PAGING]: pagingProducts
+    [storeActions.FAVORITES_LISTING]: listFavorites,
+    [storeActions.FAVORITES_PAGING]: pagingFavorites
   };
 
   if (typeof runAction[action.type] === 'function') {

@@ -1,40 +1,34 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
-import { listProducts } from '@store/actions';
+import { PagesType } from '@app/types/types';
 
-import { NavigationContext } from '@app/context/NavigationContext/NavigationContext';
-import useFetch from '@app/hooks/useFetch';
+interface ListButtonInt {
+  moreResults: (pages: PagesType) => void;
+  pages: PagesType;
+}
 
-const ListButton: React.FC<{ onListingProducts: (...args: any[]) => void }> = ({
-  onListingProducts
+const ListButton: React.FC<ListButtonInt> = ({
+  moreResults,
+  pages,
+  pages: { currentPage, totalPages }
 }) => {
-  const { currentPage, setCurrentPage } = useContext(NavigationContext);
-  const { data, pages } = useFetch(10, currentPage + 1);
   const [showButton, setShowButton] = useState(true);
 
   useEffect(() => {
-    if (pages && currentPage === pages) {
+    if (currentPage === totalPages) {
       setShowButton(false);
     }
-  }, [currentPage, pages]);
+  }, [currentPage, totalPages]);
 
   return showButton ? (
     <button
       onClick={() => {
-        setCurrentPage(currentPage + 1);
-        onListingProducts(data);
+        moreResults({ ...pages, currentPage: currentPage + 1 });
       }}
     >
-      Show more
+      Show more {pages.totalPages} - {pages.currentPage} - {pages.previousPage}
     </button>
   ) : null;
 };
 
-const mapDispatchToProps = (dispatch: React.Dispatch<any>) => {
-  return {
-    onListingProducts: (value) => dispatch(listProducts(value))
-  };
-};
-
-export default connect(null, mapDispatchToProps)(ListButton);
+export default ListButton;

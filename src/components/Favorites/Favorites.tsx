@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 
 import axios from 'axios';
 
-import { listProducts, pagingProducts } from '@store/actions';
+import { listFavorites, pagingFavorites } from '@store/actions';
 
-import { ProductsStateType, ProductType, PagesType } from '@app/types/types';
+import { FavoritesStateType, ProductType, PagesType } from '@app/types/types';
 
-import ListButton from '@app/components/Products/ListButton/ListButton';
 import ProductItem from '@app/components/Products/ProductItem/ProductItem';
-
-const limit = 10;
 
 interface ProductsInt {
   products: ProductType[];
@@ -19,7 +16,7 @@ interface ProductsInt {
   onPagingProducts: (pages: PagesType) => void;
 }
 
-const Products: React.FC<ProductsInt> = ({
+const Favorites: React.FC<ProductsInt> = ({
   products,
   pages,
   pages: { currentPage, totalPages, previousPage },
@@ -32,17 +29,16 @@ const Products: React.FC<ProductsInt> = ({
   const previousPageRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    if (currentPage === totalPages) setLoading(false);
-    if (currentPage === previousPage) return;
+    if (currentPage === previousPage) {
+      setLoading(false);
+      return;
+    }
 
-    axios(`http://localhost:8000/grocery/?_page=${currentPage}&_limit=${limit}`)
+    axios(`http://localhost:8000/grocery/?favorite=1`)
       .then((response) => {
-        const serverTotalItems = response.headers['x-total-count'];
-        const serverTotalPages = Math.ceil(serverTotalItems / limit);
-
         onListingProducts(response.data);
         onPagingProducts({
-          totalPages: serverTotalPages,
+          totalPages: currentPage,
           currentPage: currentPage,
           previousPage: currentPage
         });
@@ -63,13 +59,12 @@ const Products: React.FC<ProductsInt> = ({
 
   return (
     <>
-      <h1>Products List</h1>
+      <h1>Favorites List</h1>
       <h4>previousPage: {previousPage}</h4>
       <h4>currentPage: {currentPage}</h4>
       <h4>totalPages: {totalPages}</h4>
 
       <section>
-        <ListButton pages={pages} moreResults={onPagingProducts} />
         <h1>{products.length}</h1>
         {products.length > 0 && (
           <ul>
@@ -91,18 +86,18 @@ const Products: React.FC<ProductsInt> = ({
   );
 };
 
-const mapStateToProps = (state: ProductsStateType) => {
+const mapStateToProps = (state: FavoritesStateType) => {
   return {
-    products: state.productsReducer.productsList.products,
-    pages: state.productsReducer.productsList.pages
+    products: state.favoritesReducer.favoritesList.products,
+    pages: state.favoritesReducer.favoritesList.pages
   };
 };
 
 const mapDispatchToProps = (dispatch: React.Dispatch<any>) => {
   return {
-    onListingProducts: (value: ProductType[]) => dispatch(listProducts(value)),
-    onPagingProducts: (value: PagesType) => dispatch(pagingProducts(value))
+    onListingProducts: (value: ProductType[]) => dispatch(listFavorites(value)),
+    onPagingProducts: (value: PagesType) => dispatch(pagingFavorites(value))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

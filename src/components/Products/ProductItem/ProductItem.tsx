@@ -13,6 +13,7 @@ const ProductItem: React.FC<ProductType> = ({
 }) => (
   <li>
     <h6>{productName}</h6>
+    <img src={image_url} width="50" height="50" alt="" />
   </li>
 );
 
