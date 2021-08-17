@@ -7,7 +7,7 @@ import { listProducts, pagingProducts } from '@store/actions';
 
 import { ProductsStateType, ProductType, PagesType } from '@app/types/types';
 
-import ListButton from '@app/components/Products/ListButton/ListButton';
+import ListButton from '@app/components/ListButton/ListButton';
 import ProductItem from '@app/components/Products/ProductItem/ProductItem';
 
 const limit = 10;
@@ -93,8 +93,8 @@ const Products: React.FC<ProductsInt> = ({
 
 const mapStateToProps = (state: ProductsStateType) => {
   return {
-    products: state.productsReducer.productsList.products,
-    pages: state.productsReducer.productsList.pages
+    products: state.products.productsList.products,
+    pages: state.products.productsList.pages
   };
 };
 

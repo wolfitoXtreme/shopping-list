@@ -6,7 +6,8 @@ import { createStore, compose } from 'redux';
 
 import { RootReducer } from '@store/reducers/index';
 
-import { NavigationProvider } from '@app/context/NavigationContext/NavigationContext';
+import { NavigationProvider } from '@app/context/NavigationContext';
+import { CartProvider } from '@app/context/CartContext';
 
 import Main from '@app/components/Main';
 import ReferenceUI from '@app/components/ReferenceUI/ReferenceUI';
@@ -26,7 +27,9 @@ const App = () => {
             path="/"
             render={(props) => (
               <NavigationProvider>
-                <Main {...props} />
+                <CartProvider>
+                  <Main {...props} />
+                </CartProvider>
               </NavigationProvider>
             )}
             exact

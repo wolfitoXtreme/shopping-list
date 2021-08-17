@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const Cart = () => (
-  <>
-    <h1>Cart List</h1>
+import { CartContext } from '@app/context/CartContext';
 
-    <section>Cart here</section>
-  </>
-);
+import ProductItem from '../Products/ProductItem/ProductItem';
+
+const Cart = () => {
+  const { cartProducts: products } = useContext(CartContext);
+  return (
+    <>
+      <h1>Cart List</h1>
+
+      <section>
+        <h1>{products.length}</h1>
+        {products.length > 0 && (
+          <ul>
+            {products.map((productProps, index) => (
+              <ProductItem key={index} {...productProps} />
+            ))}
+          </ul>
+        )}
+      </section>
+    </>
+  );
+};
 
 export default Cart;

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { navigationPage } from '@app/types/types';
-import { NavigationContext } from '@app/context/NavigationContext/NavigationContext';
+import { NavigationContext } from '@app/context/NavigationContext';
 
 const Navigation = () => {
   const { setNavPage } = useContext(NavigationContext);

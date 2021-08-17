@@ -88,8 +88,8 @@ const Favorites: React.FC<ProductsInt> = ({
 
 const mapStateToProps = (state: FavoritesStateType) => {
   return {
-    products: state.favoritesReducer.favoritesList.products,
-    pages: state.favoritesReducer.favoritesList.pages
+    products: state.favorites.favoritesList.products,
+    pages: state.favorites.favoritesList.pages
   };
 };
 

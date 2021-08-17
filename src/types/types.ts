@@ -31,7 +31,7 @@ export type ProductsListType = {
 };
 
 export interface ProductsStateType {
-  productsReducer: {
+  products: {
     productsList: {
       products: ProductType[];
       pages: PagesType;
@@ -40,7 +40,7 @@ export interface ProductsStateType {
 }
 
 export interface FavoritesStateType {
-  favoritesReducer: {
+  favorites: {
     favoritesList: {
       products: ProductType[];
       pages: PagesType;
