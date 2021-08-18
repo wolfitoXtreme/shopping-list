@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { PagesType } from '@app/types/types';
 
+import Button from '@app/components/Button/Button';
+
 interface ListButtonInt {
   moreResults: (pages: PagesType) => void;
   pages: PagesType;
@@ -21,13 +23,11 @@ const ListButton: React.FC<ListButtonInt> = ({
   }, [currentPage, totalPages]);
 
   return showButton ? (
-    <button
-      onClick={() => {
-        moreResults({ ...pages, currentPage: currentPage + 1 });
-      }}
+    <Button
+      actions={[() => moreResults({ ...pages, currentPage: currentPage + 1 })]}
     >
       Show more {pages.totalPages} - {pages.currentPage} - {pages.previousPage}
-    </button>
+    </Button>
   ) : null;
 };
 

@@ -88,6 +88,7 @@ const Products: React.FC<ProductsInt> = ({
             <b>{error}</b>
           </p>
         )}
+        <ListButton pages={pages} moreResults={onPagingProducts} />
       </section>
     </>
   );

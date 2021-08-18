@@ -35,3 +35,6 @@ export const getFileName = (
 
 export const applyBodyStyles = (classNames) =>
   document.body.classList.add(classNames);
+
+export const truncateText = (text, length) =>
+  text.replace(new RegExp(`^(.{${length}}[^\\s]*).*`, 'g'), '$1...');
