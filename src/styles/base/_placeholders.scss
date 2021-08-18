@@ -134,3 +134,23 @@
   border-radius: 0;
   background-color: $black;
 }
+
+%products-list {
+  margin: 0 -$product-spacing;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  li {
+    padding: 0 10px 10px;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 4px 4px 6px 2px rgba($black, 0.15);
+
+    &:before {
+      display: none;
+    }
+  }
+}

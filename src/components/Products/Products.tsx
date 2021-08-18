@@ -10,6 +10,8 @@ import { ProductsStateType, ProductType, PagesType } from '@app/types/types';
 import ListButton from '@app/components/ListButton/ListButton';
 import ProductItem from '@app/components/Products/ProductItem/ProductItem';
 
+import { list } from './Products.module.scss';
+
 const limit = 10;
 
 interface ProductsInt {
@@ -72,7 +74,7 @@ const Products: React.FC<ProductsInt> = ({
         <ListButton pages={pages} moreResults={onPagingProducts} />
         <h1>{products.length}</h1>
         {products.length > 0 && (
-          <ul>
+          <ul className={list}>
             {products.map((productProps, index) => (
               <ProductItem key={index} {...productProps} />
             ))}

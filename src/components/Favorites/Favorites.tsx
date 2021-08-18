@@ -9,6 +9,8 @@ import { FavoritesStateType, ProductType, PagesType } from '@app/types/types';
 
 import ProductItem from '@app/components/Products/ProductItem/ProductItem';
 
+import { list } from './Favorites.module.scss';
+
 interface ProductsInt {
   products: ProductType[];
   pages: PagesType;
@@ -67,7 +69,7 @@ const Favorites: React.FC<ProductsInt> = ({
       <section>
         <h1>{products.length}</h1>
         {products.length > 0 && (
-          <ul>
+          <ul className={list}>
             {products.map((productProps, index) => (
               <ProductItem key={index} {...productProps} />
             ))}

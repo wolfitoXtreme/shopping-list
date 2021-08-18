@@ -1,0 +1,63 @@
+@import '~@styles/config/variables';
+@import '~@styles/helpers/mixins';
+
+.product {
+  &#{&} {
+    margin: 0 $product-spacing 20px;
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint(map-get($breakpoints, small)) {
+      flex-basis: calc(50% - #{$product-spacing * 2});
+    }
+
+    @include breakpoint(map-get($breakpoints, medium)) {
+      flex-basis: calc(33.3333% - #{$product-spacing * 2});
+    }
+
+    @include breakpoint(map-get($breakpoints, large)) {
+      flex-basis: calc(25% - #{$product-spacing * 2});
+    }
+  }
+
+  &-image {
+    margin: (-$product-spacing) (-$product-spacing) $product-spacing;
+    width: auto;
+    height: auto;
+    order: 1;
+    background-color: red;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &-content {
+    padding: 0 5px 35px;
+    order: 3;
+    position: relative;
+
+    &-title {
+      font-weight: 700;
+      order: 2;
+    }
+
+    &-price {
+      top: 0;
+      right: 0;
+      position: absolute;
+    }
+  }
+
+  &-info {
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+  }
+}

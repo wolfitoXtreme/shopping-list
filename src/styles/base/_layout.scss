@@ -19,6 +19,7 @@ body {
 
   // targets #root container
   > div {
+    padding: 0 20px;
     height: 100%;
     min-height: 100%;
     display: flex;

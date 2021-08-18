@@ -4,6 +4,8 @@ import { CartContext } from '@app/context/CartContext';
 
 import ProductItem from '../Products/ProductItem/ProductItem';
 
+import { list } from './Cart.module.scss';
+
 const Cart = () => {
   const { cartProducts: products } = useContext(CartContext);
   return (
@@ -13,7 +15,7 @@ const Cart = () => {
       <section>
         <h1>{products.length}</h1>
         {products.length > 0 && (
-          <ul>
+          <ul className={list}>
             {products.map((productProps, index) => (
               <ProductItem key={index} {...productProps} />
             ))}

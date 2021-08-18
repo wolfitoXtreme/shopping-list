@@ -17,12 +17,12 @@ export type PagesType = {
 };
 
 export type ProductType = {
-  id: number;
+  id: string;
   image_url: string;
   stock: number;
   productName: string;
   price: number;
-  productDescription;
+  productDescription: string;
   favorite: number;
 };
 
