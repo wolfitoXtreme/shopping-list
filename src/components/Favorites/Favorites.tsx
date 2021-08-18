@@ -36,7 +36,7 @@ const Favorites: React.FC<ProductsInt> = ({
       return;
     }
 
-    axios(`http://localhost:8000/grocery/?favorite=1`)
+    axios(`/server/grocery/?favorite=1`)
       .then((response) => {
         onListingProducts(response.data);
         onPagingProducts({

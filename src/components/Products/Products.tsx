@@ -37,7 +37,7 @@ const Products: React.FC<ProductsInt> = ({
     if (currentPage === totalPages) setLoading(false);
     if (currentPage === previousPage) return;
 
-    axios(`http://localhost:8000/grocery/?_page=${currentPage}&_limit=${limit}`)
+    axios(`/server/grocery/?_page=${currentPage}&_limit=${limit}`)
       .then((response) => {
         const serverTotalItems = response.headers['x-total-count'];
         const serverTotalPages = Math.ceil(serverTotalItems / limit);

@@ -136,7 +136,7 @@
 }
 
 %products-list {
-  margin: 0 -$product-spacing;
+  margin: 0 (-$product-spacing);
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;

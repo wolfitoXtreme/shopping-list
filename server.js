@@ -16,7 +16,7 @@ const app = express();
 app.use(cors());
 app.use(compression());
 app.use(express.static(path.join(__dirname, 'build')));
-app.use(jsonServer.router('data/db.json'));
+app.use('/server', jsonServer.router('data/db.json'));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/build/index.html'));
