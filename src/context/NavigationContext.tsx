@@ -1,18 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
 
-import { navigationPage } from '@app/types/types';
+import { NavigationPage } from '@app/types/types';
 
 export const NavigationContext = React.createContext<{
-  navPage: navigationPage;
-  setNavPage: (navPage: navigationPage) => void;
+  navPage: NavigationPage;
+  setNavPage: (navPage: NavigationPage) => void;
 }>({
-  navPage: navigationPage.PRODUCTS,
+  navPage: NavigationPage.PRODUCTS,
   setNavPage: (navPage) => navPage
 });
 
 export const NavigationProvider: React.FC = ({ children }) => {
-  const [navPage, setNavPage] = useState(navigationPage.PRODUCTS);
+  const [navPage, setNavPage] = useState(NavigationPage.PRODUCTS);
 
   return (
     <NavigationContext.Provider

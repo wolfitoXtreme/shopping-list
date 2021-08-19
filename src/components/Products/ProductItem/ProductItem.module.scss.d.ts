@@ -3,6 +3,8 @@ export const productImage: string;
 export const productContent: string;
 export const productContentTitle: string;
 export const productContentPrice: string;
+export const productContentCurrency: string;
 export const productContentDescription: string;
 export const productInfo: string;
 export const productFavoriteButton: string;
+export const productFavoriteButtonActive: string;

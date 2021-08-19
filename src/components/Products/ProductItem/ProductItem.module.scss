@@ -3,7 +3,7 @@
 
 .product {
   &#{&} {
-    margin: 0 $product-spacing 20px;
+    margin: 0 $product-spacing 26px;
     overflow: hidden;
     position: relative;
 
@@ -25,7 +25,7 @@
   }
 
   &-image {
-    margin: (-$product-spacing) (-$product-spacing) $product-spacing;
+    margin: (-$product-spacing) (-$product-spacing) 10px;
     width: auto;
     height: auto;
     order: 1;
@@ -39,29 +39,44 @@
   }
 
   &-content {
-    padding: 0 5px 35px;
+    padding: 0 0 35px;
     order: 3;
     position: relative;
 
     &-title {
       margin-right: 50px;
-      font-weight: 700;
+      font-size: $font-size-normal;
       order: 2;
+
+      @include breakpoint(map-get($breakpoints, medium)) {
+        font-size: $font-size-medium-large;
+      }
     }
 
     &-price {
       top: 0;
       right: 0;
+      font-size: $font-size-medium;
+      color: $royal-blue;
       position: absolute;
 
-      b {
-        font-weight: 800;
+      @include breakpoint(map-get($breakpoints, medium)) {
+        font-size: $font-size-medium-large;
       }
     }
 
+    &-currency {
+      font-size: 0.8em;
+      display: inline-block;
+      transform: rotate(12deg);
+    }
+
     &-description {
+      display: none;
+
       @include breakpoint(map-get($breakpoints, medium)) {
         font-size: $font-size-normal;
+        display: block;
       }
     }
   }
@@ -79,6 +94,27 @@
   &-favorite-button {
     top: 10px;
     right: 10px;
+    margin: 0;
+    padding: 0;
+    opacity: 0.65;
     position: absolute;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    svg {
+      fill: $white;
+      stroke: $red;
+      filter: drop-shadow(2px 2px 3px rgba($black, 0.7));
+    }
+  }
+
+  &-favorite-button-active {
+    svg {
+      fill: $red;
+      stroke: $white;
+    }
   }
 }

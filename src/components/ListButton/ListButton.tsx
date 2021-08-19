@@ -25,6 +25,7 @@ const ListButton: React.FC<ListButtonInt> = ({
   return showButton ? (
     <Button
       actions={[() => moreResults({ ...pages, currentPage: currentPage + 1 })]}
+      title="Show more products"
     >
       Show more {pages.totalPages} - {pages.currentPage} - {pages.previousPage}
     </Button>

@@ -1,26 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 
-import axios from 'axios';
-
 import { listFavorites, pagingFavorites } from '@store/actions';
 
-import { FavoritesStateType, ProductType, PagesType } from '@app/types/types';
+import { requestListing } from '@app/utils/request';
+import {
+  ProductType,
+  PagesType,
+  Request,
+  ProductsInt,
+  ProductsStateType
+} from '@app/types/types';
 
 import ProductItem from '@app/components/Products/ProductItem/ProductItem';
 
 import { list } from './Favorites.module.scss';
 
-interface ProductsInt {
-  products: ProductType[];
-  pages: PagesType;
-  onListingProducts: (products: ProductType[]) => void;
-  onPagingProducts: (pages: PagesType) => void;
-}
-
 const Favorites: React.FC<ProductsInt> = ({
   products,
-  pages,
   pages: { currentPage, totalPages, previousPage },
   onListingProducts,
   onPagingProducts
@@ -36,19 +33,14 @@ const Favorites: React.FC<ProductsInt> = ({
       return;
     }
 
-    axios(`/server/grocery/?favorite=1`)
-      .then((response) => {
-        onListingProducts(response.data);
-        onPagingProducts({
-          totalPages: currentPage,
-          currentPage: currentPage,
-          previousPage: currentPage
-        });
-      })
-      .catch((error) => {
-        setError(error.message);
-      })
-      .finally(() => setLoading(false));
+    requestListing({
+      requestType: Request.LIST_FAVORITES,
+      currentPage,
+      onListingProducts,
+      onPagingProducts,
+      setError,
+      setLoading
+    });
 
     previousPageRef.current = currentPage;
   }, [
@@ -68,12 +60,14 @@ const Favorites: React.FC<ProductsInt> = ({
 
       <section>
         <h1>{products.length}</h1>
-        {products.length > 0 && (
+        {products.length > 0 ? (
           <ul className={list}>
             {products.map((productProps, index) => (
               <ProductItem key={index} {...productProps} />
             ))}
           </ul>
+        ) : (
+          <p>You have no favorites...</p>
         )}
         {loading && !error && <p>loading...</p>}
         {error && (
@@ -88,10 +82,10 @@ const Favorites: React.FC<ProductsInt> = ({
   );
 };
 
-const mapStateToProps = (state: FavoritesStateType) => {
+const mapStateToProps = (state: ProductsStateType) => {
   return {
-    products: state.favorites.favoritesList.products,
-    pages: state.favorites.favoritesList.pages
+    products: state.products.favoritesList.products,
+    pages: state.products.favoritesList.pages
   };
 };
 

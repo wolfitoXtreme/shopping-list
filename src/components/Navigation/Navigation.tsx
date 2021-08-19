@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { navigationPage } from '@app/types/types';
+import { NavigationPage } from '@app/types/types';
 import { NavigationContext } from '@app/context/NavigationContext';
 
 const Navigation = () => {
@@ -8,9 +8,9 @@ const Navigation = () => {
 
   return (
     <ul>
-      <li onClick={() => setNavPage(navigationPage.PRODUCTS)}>Products</li>
-      <li onClick={() => setNavPage(navigationPage.FAVORITES)}>Favorites</li>
-      <li onClick={() => setNavPage(navigationPage.CART)}>Cart</li>
+      <li onClick={() => setNavPage(NavigationPage.PRODUCTS)}>Products</li>
+      <li onClick={() => setNavPage(NavigationPage.FAVORITES)}>Favorites</li>
+      <li onClick={() => setNavPage(NavigationPage.CART)}>Cart</li>
     </ul>
   );
 };

@@ -1,2 +1,8 @@
-export { listProducts, pagingProducts } from './products';
-export { listFavorites, pagingFavorites } from './favorites';
+export {
+  listProducts,
+  pagingProducts,
+  listFavorites,
+  pagingFavorites,
+  addFavorite,
+  removeFavorite
+} from './products';

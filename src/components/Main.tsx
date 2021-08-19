@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { navigationPage } from '@app/types/types';
+import { NavigationPage } from '@app/types/types';
 import { NavigationContext } from '@app/context/NavigationContext';
 
 import Products from '@app/components/Products/Products';
@@ -14,9 +14,9 @@ const Main = () => {
   return (
     <>
       <Navigation />
-      {navPage === navigationPage.PRODUCTS && <Products />}
-      {navPage === navigationPage.FAVORITES && <Favorites />}
-      {navPage === navigationPage.CART && <Cart />}
+      {navPage === NavigationPage.PRODUCTS && <Products />}
+      {navPage === NavigationPage.FAVORITES && <Favorites />}
+      {navPage === NavigationPage.CART && <Cart />}
     </>
   );
 };

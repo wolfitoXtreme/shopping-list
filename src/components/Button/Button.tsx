@@ -7,13 +7,15 @@ import styles from './Button.module.scss';
 interface ButtonInt {
   actions: { (): void }[];
   children?: React.ReactNode;
-  className?: string;
+  title: string;
   variant?: 'button' | 'icon';
+  className?: string;
 }
 
 const Button: React.FC<ButtonInt> = ({
   actions,
   children,
+  title,
   variant = 'button',
   className
 }) => {
@@ -25,6 +27,7 @@ const Button: React.FC<ButtonInt> = ({
           return action();
         });
       }}
+      title={title}
       className={classNames(className, { [styles.icon]: variant === 'icon' })}
     >
       {children}

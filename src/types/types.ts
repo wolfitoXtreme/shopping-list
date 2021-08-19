@@ -26,13 +26,19 @@ export type ProductType = {
   favorite: number;
 };
 
-export type ProductsListType = {
+export interface ProductsInt {
   products: ProductType[];
-};
-
+  pages: PagesType;
+  onListingProducts: (products: ProductType[]) => void;
+  onPagingProducts: (pages: PagesType) => void;
+}
 export interface ProductsStateType {
   products: {
     productsList: {
+      products: ProductType[];
+      pages: PagesType;
+    };
+    favoritesList: {
       products: ProductType[];
       pages: PagesType;
     };
@@ -48,8 +54,13 @@ export interface FavoritesStateType {
   };
 }
 
-export enum navigationPage {
+export enum NavigationPage {
   PRODUCTS = 'products',
   FAVORITES = 'favorites',
   CART = 'cart'
+}
+
+export enum Request {
+  LIST_PRODUCTS = 'list products',
+  LIST_FAVORITES = 'list favorites'
 }

@@ -1,25 +1,23 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 
-import axios from 'axios';
-
 import { listProducts, pagingProducts } from '@store/actions';
 
-import { ProductsStateType, ProductType, PagesType } from '@app/types/types';
+import { requestListing } from '@app/utils/request';
+import {
+  ProductsStateType,
+  ProductType,
+  PagesType,
+  Request,
+  ProductsInt
+} from '@app/types/types';
 
 import ListButton from '@app/components/ListButton/ListButton';
 import ProductItem from '@app/components/Products/ProductItem/ProductItem';
 
 import { list } from './Products.module.scss';
 
-const limit = 10;
-
-interface ProductsInt {
-  products: ProductType[];
-  pages: PagesType;
-  onListingProducts: (products: ProductType[]) => void;
-  onPagingProducts: (pages: PagesType) => void;
-}
+const limit = 8;
 
 const Products: React.FC<ProductsInt> = ({
   products,
@@ -28,7 +26,7 @@ const Products: React.FC<ProductsInt> = ({
   onListingProducts,
   onPagingProducts
 }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const previousPageRef = useRef<number | undefined>(undefined);
@@ -37,22 +35,15 @@ const Products: React.FC<ProductsInt> = ({
     if (currentPage === totalPages) setLoading(false);
     if (currentPage === previousPage) return;
 
-    axios(`/server/grocery/?_page=${currentPage}&_limit=${limit}`)
-      .then((response) => {
-        const serverTotalItems = response.headers['x-total-count'];
-        const serverTotalPages = Math.ceil(serverTotalItems / limit);
-
-        onListingProducts(response.data);
-        onPagingProducts({
-          totalPages: serverTotalPages,
-          currentPage: currentPage,
-          previousPage: currentPage
-        });
-      })
-      .catch((error) => {
-        setError(error.message);
-      })
-      .finally(() => setLoading(false));
+    requestListing({
+      requestType: Request.LIST_PRODUCTS,
+      currentPage,
+      limit,
+      onListingProducts,
+      onPagingProducts,
+      setError,
+      setLoading
+    });
 
     previousPageRef.current = currentPage;
   }, [
@@ -69,6 +60,7 @@ const Products: React.FC<ProductsInt> = ({
       <h4>previousPage: {previousPage}</h4>
       <h4>currentPage: {currentPage}</h4>
       <h4>totalPages: {totalPages}</h4>
+      <h4>loading: {loading.toString()}</h4>
 
       <section>
         <ListButton pages={pages} moreResults={onPagingProducts} />
