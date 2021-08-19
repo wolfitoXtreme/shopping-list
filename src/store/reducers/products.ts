@@ -33,7 +33,7 @@ const reducer = (
       ...state,
       productsList: {
         ...state.productsList,
-        products: state.productsList.products.concat(action.value)
+        products: [...state.productsList.products, ...action.value]
       }
     };
   };
@@ -53,7 +53,7 @@ const reducer = (
       ...state,
       favoritesList: {
         ...state.favoritesList,
-        products: state.favoritesList.products.concat(action.value)
+        products: [...action.value]
       }
     };
   };
