@@ -1,0 +1,35 @@
+.heading {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  h2 {
+    margin: 0;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+.nav-desktop {
+  top: 0;
+  right: 0;
+  height: 100%;
+  position: absolute;
+}
+
+.nav-button-icon {
+  cursor: pointer;
+  opacity: 0.65;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &-backwards {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}

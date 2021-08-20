@@ -1,0 +1,14 @@
+@import '~@styles/config/variables';
+@import '~@styles/helpers/mixins';
+
+.products {
+  padding: 0 12px;
+
+  @include breakpoint(map-get($breakpoints, large)) {
+    flex: 0 0 70%;
+  }
+}
+
+.products-side-bar {
+  padding: 0;
+}

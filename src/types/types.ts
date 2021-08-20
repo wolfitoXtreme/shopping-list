@@ -54,6 +54,11 @@ export interface FavoritesStateType {
   };
 }
 
+export enum Devices {
+  MOBILE = 'mobile',
+  DESKTOP = 'desktop'
+}
+
 export enum NavigationPage {
   PRODUCTS = 'products',
   FAVORITES = 'favorites',

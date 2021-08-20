@@ -2,6 +2,15 @@
 @import '~breakpoint-sass/stylesheets/breakpoint';
 @import '~@styles/base/placeholders';
 
+.cart {
+  background-color: blueviolet;
+}
+
 .list {
   @extend %products-list;
+}
+
+.list-side-bar {
+  margin: 0;
+  flex: none;
 }

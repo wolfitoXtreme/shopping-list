@@ -7,6 +7,7 @@ import { createStore, compose } from 'redux';
 import { RootReducer } from '@store/reducers/index';
 
 import { NavigationProvider } from '@app/context/NavigationContext';
+import { DeviceProvider } from '@app/context/DeviceContext';
 import { CartProvider } from '@app/context/CartContext';
 
 import Main from '@app/components/Main';
@@ -26,11 +27,13 @@ const App = () => {
           <Route
             path="/"
             render={(props) => (
-              <NavigationProvider>
-                <CartProvider>
-                  <Main {...props} />
-                </CartProvider>
-              </NavigationProvider>
+              <DeviceProvider>
+                <NavigationProvider>
+                  <CartProvider>
+                    <Main {...props} />
+                  </CartProvider>
+                </NavigationProvider>
+              </DeviceProvider>
             )}
             exact
           />

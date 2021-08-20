@@ -9,13 +9,16 @@ import {
   ProductType,
   PagesType,
   Request,
-  ProductsInt
+  ProductsInt,
+  NavigationPage
 } from '@app/types/types';
 
-import ListButton from '@app/components/ListButton/ListButton';
+import Heading from '@app/components/Heading/Heading';
+import ProductList from '@app/components/Products/ProductsList/ProductsList';
 import ProductItem from '@app/components/Products/ProductItem/ProductItem';
+import ListButton from '@app/components/ListButton/ListButton';
 
-import { list } from './Products.module.scss';
+import styles from './Products.module.scss';
 
 const limit = 8;
 
@@ -55,34 +58,26 @@ const Products: React.FC<ProductsInt> = ({
   ]);
 
   return (
-    <>
-      <h1>Products List</h1>
-      <h4>previousPage: {previousPage}</h4>
-      <h4>currentPage: {currentPage}</h4>
-      <h4>totalPages: {totalPages}</h4>
-      <h4>loading: {loading.toString()}</h4>
+    <ProductList>
+      <Heading navForwards={NavigationPage.FAVORITES}>Products List</Heading>
 
-      <section>
-        <ListButton pages={pages} moreResults={onPagingProducts} />
-        <h1>{products.length}</h1>
-        {products.length > 0 && (
-          <ul className={list}>
-            {products.map((productProps, index) => (
-              <ProductItem key={index} {...productProps} />
-            ))}
-          </ul>
-        )}
-        {loading && !error && <p>loading...</p>}
-        {error && (
-          <p>
-            Server must be down.
-            <br />
-            <b>{error}</b>
-          </p>
-        )}
-        <ListButton pages={pages} moreResults={onPagingProducts} />
-      </section>
-    </>
+      {products.length > 0 && (
+        <ul className={styles.list}>
+          {products.map((productProps, index) => (
+            <ProductItem key={index} {...productProps} />
+          ))}
+        </ul>
+      )}
+      {loading && !error && <p>loading...</p>}
+      {error && (
+        <p>
+          Server must be down.
+          <br />
+          <b>{error}</b>
+        </p>
+      )}
+      <ListButton pages={pages} moreResults={onPagingProducts} />
+    </ProductList>
   );
 };
 

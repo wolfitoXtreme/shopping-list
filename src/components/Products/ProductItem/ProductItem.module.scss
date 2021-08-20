@@ -3,33 +3,39 @@
 
 .product {
   &#{&} {
+    $spacing: $product-spacing * 2;
+
     margin: 0 $product-spacing 26px;
     overflow: hidden;
     position: relative;
 
     @include breakpoint(map-get($breakpoints, small)) {
-      flex-basis: calc(50% - #{$product-spacing * 2});
+      flex-basis: calc(50% - #{$spacing});
     }
 
     @include breakpoint(map-get($breakpoints, medium)) {
-      flex-basis: calc(33.3333% - #{$product-spacing * 2});
+      flex-basis: calc(33.3333% - #{$spacing});
     }
 
     @include breakpoint(map-get($breakpoints, large)) {
-      flex-basis: calc(25% - #{$product-spacing * 2});
+      flex-basis: calc(25% - #{$spacing});
     }
 
-    @include breakpoint($app-max-width) {
-      flex-basis: calc(20% - #{$product-spacing * 2});
+    @include breakpoint(orientation landscape) {
+      @include breakpoint(map-get($breakpoints, small)) {
+        flex-basis: calc(33.333% - #{$spacing});
+      }
+
+      @include breakpoint(map-get($breakpoints, medium)) {
+        flex-basis: calc(25% - #{$spacing});
+      }
     }
   }
 
   &-image {
-    margin: (-$product-spacing) (-$product-spacing) 10px;
+    margin: 0 (-$product-spacing) 10px;
     width: auto;
     height: auto;
-    order: 1;
-    background-color: red;
 
     img {
       width: 100%;
@@ -40,13 +46,14 @@
 
   &-content {
     padding: 0 0 35px;
-    order: 3;
-    position: relative;
+
+    @include breakpoint(map-get($breakpoints, large)) {
+      position: relative;
+    }
 
     &-title {
-      margin-right: 50px;
+      padding-right: 50px;
       font-size: $font-size-normal;
-      order: 2;
 
       @include breakpoint(map-get($breakpoints, medium)) {
         font-size: $font-size-medium-large;
@@ -54,14 +61,19 @@
     }
 
     &-price {
-      top: 0;
-      right: 0;
+      bottom: 10px;
+      margin: 0;
       font-size: $font-size-medium;
       color: $royal-blue;
       position: absolute;
 
       @include breakpoint(map-get($breakpoints, medium)) {
         font-size: $font-size-medium-large;
+      }
+
+      @include breakpoint(map-get($breakpoints, large)) {
+        top: 0;
+        right: 0;
       }
     }
 
@@ -87,8 +99,12 @@
     padding: 10px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     position: absolute;
+
+    @include breakpoint(map-get($breakpoints, large)) {
+      justify-content: space-between;
+    }
   }
 
   &-favorite-button {
@@ -116,5 +132,56 @@
       fill: $red;
       stroke: $white;
     }
+  }
+}
+
+.product-sidebar {
+  &#{&} {
+    margin: 0 0 26px;
+    padding: 0;
+    width: 100%;
+    flex: none;
+    flex-direction: row;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  &-image {
+    margin: 0 15px 0 0;
+    display: flex;
+    flex: 1 0 35%;
+    overflow: hidden;
+    border-radius: 10px;
+
+    img {
+      height: fit-content;
+    }
+  }
+
+  &-content {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+
+    &-price {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-favorite-button {
+    top: 4px;
+    left: 4px;
+  }
+}
+
+.amount-control {
+  width: 100px;
+
+  input {
+    width: 100%;
   }
 }

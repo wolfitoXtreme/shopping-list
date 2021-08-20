@@ -2,6 +2,15 @@
 @import '~breakpoint-sass/stylesheets/breakpoint';
 @import '~@styles/base/placeholders';
 
+.favorites {
+  padding: 0;
+}
+
 .list {
   @extend %products-list;
+}
+
+.list-side-bar {
+  margin: 0;
+  flex: none;
 }
