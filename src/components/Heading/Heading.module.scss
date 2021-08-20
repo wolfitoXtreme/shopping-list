@@ -7,16 +7,24 @@
 
   h2 {
     margin: 0;
+    font-size: 1.8rem;
     font-weight: 600;
     text-align: center;
   }
 }
 
-.nav-desktop {
-  top: 0;
-  right: 0;
+.nav {
+  margin: 0;
   height: 100%;
-  position: absolute;
+  min-width: 22px;
+  display: flex;
+  align-items: center;
+
+  &-desktop {
+    top: 0;
+    right: 0;
+    position: absolute;
+  }
 }
 
 .nav-button-icon {

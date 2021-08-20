@@ -63,8 +63,8 @@ const Products: React.FC<ProductsInt> = ({
 
       {products.length > 0 && (
         <ul className={styles.list}>
-          {products.map((productProps, index) => (
-            <ProductItem key={index} {...productProps} />
+          {products.map((product, index) => (
+            <ProductItem key={index} product={product} />
           ))}
         </ul>
       )}

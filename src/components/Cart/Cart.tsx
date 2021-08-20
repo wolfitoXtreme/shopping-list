@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import classNames from 'clsx';
 
@@ -14,37 +14,50 @@ import Button from '@app/components/Button/Button';
 import styles from './Cart.module.scss';
 
 const Cart: React.FC<{}> = () => {
-  const { cartProducts: products } = useContext(CartContext);
+  const { cartProducts: products, total, setTotal } = useContext(CartContext);
   const { isSideBar } = useContext(SideBarContext);
+
+  useEffect(() => {
+    setTotal();
+  }, [setTotal]);
 
   return (
     <ProductList>
       <Heading navBackwards={NavigationPage.FAVORITES}>Cart</Heading>
 
-      {products.length > 0 && (
+      {products.length > 0 ? (
         <ul
           className={classNames(styles.list, {
             [styles.listSideBar]: isSideBar
           })}
         >
-          {products.map((productProps, index) => (
-            <ProductItem key={index} isCartItem {...productProps} />
+          {products.map((product, index) => (
+            <ProductItem key={index} product={product} isCartItem />
           ))}
         </ul>
+      ) : (
+        <p>Your Cart is empty...</p>
       )}
 
-      <p>
-        Total amount
-        <b>
-          <span>&#36;</span>0.00
-        </b>
-      </p>
-      <Button
-        actions={[() => console.log('Checking out...')]}
-        title="Checkoutt"
-      >
-        Make a payment
-      </Button>
+      {products.length > 0 && (
+        <div className={styles.info}>
+          <p className={styles.total}>
+            Total amount
+            <b>
+              <span>&#36;</span>
+              {total}
+            </b>
+          </p>
+          <Button
+            actions={[() => console.log('Checking out...')]}
+            title="Checkoutt"
+            variant="button"
+            className={styles.checkoutButton}
+          >
+            Make a payment
+          </Button>
+        </div>
+      )}
     </ProductList>
   );
 };

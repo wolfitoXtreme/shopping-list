@@ -2,15 +2,37 @@
 @import '~breakpoint-sass/stylesheets/breakpoint';
 @import '~@styles/base/placeholders';
 
-.cart {
-  background-color: blueviolet;
-}
-
 .list {
   @extend %products-list;
+  margin: 0 auto;
+  max-width: 550px;
 }
 
 .list-side-bar {
   margin: 0;
   flex: none;
+}
+
+.info {
+  padding-top: 20px;
+  border-top: 1px solid $very-light-grey;
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+
+    b {
+      font-size: $font-size-medium-large;
+      color: $flamenco;
+    }
+  }
+}
+
+.checkout-button {
+  padding: 8px 12px;
+  width: 100%;
+  font-size: $font-size-normal;
+  color: $white;
+  border-color: $flamenco;
+  background-image: linear-gradient(270deg, $flamenco 0px, $casablanca 100%);
 }

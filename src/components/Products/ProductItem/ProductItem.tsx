@@ -10,13 +10,16 @@ import { truncateText } from '@app/utils/utils';
 import { Devices, ProductType } from '@app/types/types';
 import { DeviceContext } from '@app/context/DeviceContext';
 import { SideBarContext } from '@app/context/SideBarContext';
+import { CartContext } from '@app/context/CartContext';
 import { ReactComponent as FavoriteIcon } from '@app/assets/icons/icon-favorite.svg';
 
 import Button from '@app/components/Button/Button';
+import AmountCounter from '@app/components/Products/ProductItem/AmountCounter/AmountCounter';
 
 import styles from './ProductItem.module.scss';
 
-interface ProductItemInt extends ProductType {
+interface ProductItemInt {
+  product: ProductType;
   isCartItem: boolean;
   onAddFavorite: (product: ProductType) => void;
   onRemoveFavorite: (product: ProductType) => void;
@@ -24,18 +27,22 @@ interface ProductItemInt extends ProductType {
 
 const ProductItem: React.FC<ProductItemInt> = ({
   isCartItem = false,
-  id,
-  productName,
-  productDescription,
-  image_url,
-  price,
-  favorite,
-  stock,
+  product,
+  product: {
+    id,
+    productName,
+    productDescription,
+    image_url,
+    price,
+    favorite,
+    stock
+  },
   onAddFavorite,
   onRemoveFavorite
 }) => {
   const { deviceType } = useContext(DeviceContext);
   const { isSideBar } = useContext(SideBarContext);
+  const { addToCart } = useContext(CartContext);
 
   const isFavorite = Boolean(favorite);
 
@@ -64,12 +71,12 @@ const ProductItem: React.FC<ProductItemInt> = ({
   return (
     <li
       className={classNames(styles.product, {
-        [styles.productSidebar]: isSideBar
+        [styles.productSidebar]: isSideBar || isCartItem
       })}
     >
       <picture
         className={classNames(styles.productImage, {
-          [styles.productSidebarImage]: isSideBar
+          [styles.productSidebarImage]: isSideBar || isCartItem
         })}
       >
         <img
@@ -83,10 +90,16 @@ const ProductItem: React.FC<ProductItemInt> = ({
 
       <div
         className={classNames(styles.productContent, {
-          [styles.productSidebarContent]: isSideBar
+          [styles.productSidebarContent]: isSideBar || isCartItem
         })}
       >
-        <h5 className={styles.productContentTitle}>{productName}</h5>
+        <h5
+          className={classNames(styles.productContentTitle, {
+            [styles.productSidebarContentTitle]: isSideBar || isCartItem
+          })}
+        >
+          {productName}
+        </h5>
 
         {deviceType === Devices.DESKTOP && !isSideBar && (
           <div className={styles.productContentDescription}>
@@ -96,7 +109,7 @@ const ProductItem: React.FC<ProductItemInt> = ({
 
         <div
           className={classNames(styles.productContentPrice, {
-            [styles.productSidebarContentPrice]: isSideBar
+            [styles.productSidebarContentPrice]: isSideBar || isCartItem
           })}
         >
           <b>
@@ -105,15 +118,7 @@ const ProductItem: React.FC<ProductItemInt> = ({
           </b>
         </div>
 
-        {isCartItem && (
-          <div className={styles.amountControl}>
-            <input
-              type="text"
-              value="1"
-              onChange={() => console.log('changing...')}
-            />
-          </div>
-        )}
+        {isCartItem && <AmountCounter product={product} />}
       </div>
 
       {!isCartItem && (
@@ -133,14 +138,13 @@ const ProductItem: React.FC<ProductItemInt> = ({
         </Button>
       )}
 
-      {!isSideBar && (
+      {!isSideBar && !isCartItem && (
         <div className={styles.productInfo}>
-          {deviceType === Devices.DESKTOP && <b>{stock} left</b>}
+          {deviceType === Devices.DESKTOP && (
+            <b className={styles.productInfoStock}>{stock} left</b>
+          )}
 
-          <Button
-            actions={[() => console.log('adding to cart')]}
-            title="Add to cart"
-          >
+          <Button actions={[() => addToCart(product)]} title="Add to cart">
             + add
           </Button>
         </div>

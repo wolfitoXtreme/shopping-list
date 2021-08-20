@@ -85,7 +85,9 @@ $colors: (
   citrus: #a9bf05,
   dark-slate-blue: #533e87,
   red: #f20804,
-  royal-blue: #4e75d6
+  royal-blue: #4e75d6,
+  flamenco: #eb8552,
+  casablanca: #f0a855
 );
 $black: nth(map-get($colors, black), 1);
 $light-black: nth(map-get($colors, light-black), 1);
@@ -104,6 +106,8 @@ $citrus: nth(map-get($colors, citrus), 1);
 $dark-slate-blue: nth(map-get($colors, dark-slate-blue), 1);
 $red: nth(map-get($colors, red), 1);
 $royal-blue: nth(map-get($colors, royal-blue), 1);
+$flamenco: nth(map-get($colors, flamenco), 1);
+$casablanca: nth(map-get($colors, casablanca), 1);
 
 // default colors
 $font-color-default: $black;

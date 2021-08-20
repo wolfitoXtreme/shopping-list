@@ -73,8 +73,8 @@ const Favorites: React.FC<ProductsInt> = ({
             [styles.listSideBar]: isSideBar
           })}
         >
-          {products.map((productProps, index) => (
-            <ProductItem key={index} {...productProps} />
+          {products.map((product, index) => (
+            <ProductItem key={index} product={product} />
           ))}
         </ul>
       ) : (

@@ -1,0 +1,44 @@
+@import '~@styles/config/variables';
+
+.amount-control {
+  &#{&} {
+    margin-bottom: 15px;
+    width: 80px;
+    display: flex;
+    border: 1px solid $dark-grey;
+    border-radius: 3px;
+
+    &:hover {
+      border-color: $dim-grey;
+    }
+
+    input {
+      width: 100%;
+      font-size: $font-size-x-small;
+      text-align: center;
+      border-style: none;
+    }
+
+    .handler-button {
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      border-style: none;
+      background-color: transparent;
+
+      svg {
+        width: 10px;
+        fill: $charcoal;
+      }
+
+      &:hover,
+      &:active {
+        background-color: $very-light-grey;
+
+        & svg {
+          fill: $black;
+        }
+      }
+    }
+  }
+}

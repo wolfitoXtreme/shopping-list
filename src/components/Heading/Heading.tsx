@@ -22,7 +22,7 @@ const Heading: React.FC<{
 
   return (
     <div className={styles.heading}>
-      <div>
+      <div className={styles.nav}>
         {navBackwards && deviceType === Devices.MOBILE && (
           <Button
             actions={[() => setNavPage(navBackwards)]}
@@ -40,7 +40,7 @@ const Heading: React.FC<{
 
       <h2>{children}</h2>
 
-      <div>
+      <div className={styles.nav}>
         {navForwards && deviceType === Devices.MOBILE && (
           <Button
             actions={[() => setNavPage(navForwards)]}
@@ -53,7 +53,7 @@ const Heading: React.FC<{
         )}
 
         {deviceType === Devices.DESKTOP && !isSideBar && (
-          <div className={styles.navDesktop}>
+          <div className={classNames(styles.nav, styles.navDesktop)}>
             {(navPage === NavigationPage.CART ||
               navPage === NavigationPage.PRODUCTS) && (
               <Button

@@ -28,7 +28,10 @@ const Button: React.FC<ButtonInt> = ({
         });
       }}
       title={title}
-      className={classNames(className, { [styles.icon]: variant === 'icon' })}
+      className={classNames(className, {
+        [styles.icon]: variant === 'icon',
+        [styles.button]: variant === 'button'
+      })}
     >
       {children}
     </button>
