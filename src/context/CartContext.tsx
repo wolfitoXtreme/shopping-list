@@ -32,9 +32,17 @@ export const CartProvider: React.FC = ({ children }) => {
       !cartProducts.some((item) => item.id === product.id) ||
       cartProducts.length === 0;
 
+    const existingItem = cartProducts.find(
+      (cartProduct: CartProductType) => cartProduct.id === product.id
+    );
+
     const result = () => {
       return cartProducts.map((item) => {
-        if (item.cartAmount && item.cartAmount < item.stock) {
+        if (
+          item.cartAmount &&
+          item.cartAmount < item.stock &&
+          item.id === existingItem?.id
+        ) {
           return {
             ...item,
             cartAmount: item.cartAmount ? item.cartAmount + amount : amount
