@@ -52,11 +52,13 @@
     }
 
     &-title {
+      margin-bottom: 5px;
       font-size: $font-size-normal;
 
       @include breakpoint(map-get($breakpoints, large)) {
         padding-right: 50px;
         font-size: $font-size-medium-large;
+        overflow-wrap: break-word;
       }
     }
 
@@ -110,6 +112,8 @@
     &-stock {
       font-size: $font-size-small;
       font-weight: 700;
+      color: $flamenco;
+      display: block;
     }
   }
 
@@ -171,8 +175,16 @@
     flex-flow: column;
     justify-content: space-between;
 
+    @include breakpoint(map-get($breakpoints, large)) {
+      padding: 0 0 24px;
+    }
+
+    &-cart {
+      padding-bottom: 5px;
+    }
+
     &-title {
-      padding-top: 10px;
+      padding-top: 5px;
       padding-bottom: 10px;
     }
 
@@ -189,8 +201,13 @@
     right: 0;
     left: auto;
     padding-right: 0;
+    padding-left: 15px;
     width: 60%;
-    justify-content: flex-end;
+    justify-content: space-between;
+
+    &-cart {
+      justify-content: flex-end;
+    }
   }
 
   &-favorite-button {

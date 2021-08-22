@@ -1,13 +1,18 @@
 @import '~@styles/config/variables';
+@import '~@styles/helpers/mixins';
 
 .amount-control {
   &#{&} {
-    margin-bottom: 15px;
+    margin: 10px 0;
     width: 80px;
     display: flex;
     border: 1px solid $dark-grey;
     border-radius: 3px;
     z-index: 10;
+
+    @include breakpoint(map-get($breakpoints, large)) {
+      margin-bottom: 0;
+    }
 
     &:hover {
       border-color: $dim-grey;
