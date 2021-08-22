@@ -105,7 +105,7 @@ const ProductItem: React.FC<ProductItemInt> = ({
 
         {deviceType === Devices.DESKTOP && !isSideBar && (
           <div className={styles.productContentDescription}>
-            {truncateText(productDescription, 80)}
+            {truncateText(productDescription, 70)}
           </div>
         )}
 
@@ -140,22 +140,24 @@ const ProductItem: React.FC<ProductItemInt> = ({
         </Button>
       )}
 
-      {!isSideBar && !isCartItem && (
-        <div className={styles.productInfo}>
-          {deviceType === Devices.DESKTOP && (
-            <b className={styles.productInfoStock}>{stock} left</b>
-          )}
+      <div
+        className={classNames(styles.productInfo, {
+          [styles.productSidebarInfo]: isSideBar
+        })}
+      >
+        {deviceType === Devices.DESKTOP && !isSideBar && (
+          <b className={styles.productInfoStock}>{stock} left</b>
+        )}
 
-          <Button
-            actions={[() => addToCart(product, 1)]}
-            title="Add to cart"
-            variant="mixed"
-            disabled={stock === 0}
-          >
-            <PlusIcon /> add
-          </Button>
-        </div>
-      )}
+        <Button
+          actions={[() => addToCart(product, 1)]}
+          title="Add to cart"
+          variant="mixed"
+          disabled={stock === 0}
+        >
+          <PlusIcon /> add
+        </Button>
+      </div>
     </li>
   );
 };

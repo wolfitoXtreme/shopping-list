@@ -58,9 +58,12 @@ const Products: React.FC<ProductsInt> = ({
   ]);
 
   return (
-    <ProductList>
-      <Heading navForwards={NavigationPage.FAVORITES}>Products List</Heading>
-
+    <ProductList
+      header={
+        <Heading navForwards={NavigationPage.FAVORITES}>Products List</Heading>
+      }
+      footer={<ListButton pages={pages} moreResults={onPagingProducts} />}
+    >
       {products.length > 0 && (
         <ul className={styles.list}>
           {products.map((product, index) => (
@@ -76,7 +79,6 @@ const Products: React.FC<ProductsInt> = ({
           <b>{error}</b>
         </p>
       )}
-      <ListButton pages={pages} moreResults={onPagingProducts} />
     </ProductList>
   );
 };

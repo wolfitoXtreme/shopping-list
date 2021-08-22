@@ -21,7 +21,7 @@ const Main = () => {
   return (
     <div className={styles.main}>
       <div
-        className={classNames({
+        className={classNames(styles.content, {
           [styles.contentDesktop]: deviceType === Devices.DESKTOP
         })}
       >

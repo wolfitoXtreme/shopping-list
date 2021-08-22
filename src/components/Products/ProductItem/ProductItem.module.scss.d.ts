@@ -14,4 +14,5 @@ export const productSidebarImage: string;
 export const productSidebarContent: string;
 export const productSidebarContentTitle: string;
 export const productSidebarContentPrice: string;
+export const productSidebarInfo: string;
 export const productSidebarFavoriteButton: string;

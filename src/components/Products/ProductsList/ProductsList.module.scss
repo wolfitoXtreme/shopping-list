@@ -3,16 +3,19 @@
 
 .products {
   padding: 0 12px;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 
   @include breakpoint(map-get($breakpoints, large)) {
     flex: 0 0 68%;
   }
 }
 
+.footer {
+  padding-bottom: 20px;
+}
+
 .products-side-bar {
-  padding: 0 0 20px;
-  min-height: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
   position: relative;
 }

@@ -10,12 +10,11 @@
 
 .list-side-bar {
   margin: 0;
-  display: block;
   flex: none;
 }
 
 .info {
-  padding: 20px 0;
+  padding: 20px 0 0;
   border-top: 1px solid $very-light-grey;
 
   .total {

@@ -6,7 +6,16 @@ import { SideBarContext } from '@app/context/SideBarContext';
 
 import styles from './ProductsList.module.scss';
 
-const ProductsList: React.FC = ({ children }) => {
+interface ProductsListInt {
+  header: React.ReactNode;
+  footer?: React.ReactNode;
+}
+
+const ProductsList: React.FC<ProductsListInt> = ({
+  header,
+  children,
+  footer
+}) => {
   const { isSideBar } = useContext(SideBarContext);
 
   return (
@@ -15,7 +24,9 @@ const ProductsList: React.FC = ({ children }) => {
         [styles.productsSideBar]: isSideBar
       })}
     >
-      {children}
+      {header}
+      <div>{children}</div>
+      {footer && <div className={styles.footer}>{footer}</div>}
     </section>
   );
 };

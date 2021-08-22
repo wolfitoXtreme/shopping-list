@@ -7,6 +7,7 @@
     display: flex;
     border: 1px solid $dark-grey;
     border-radius: 3px;
+    z-index: 10;
 
     &:hover {
       border-color: $dim-grey;

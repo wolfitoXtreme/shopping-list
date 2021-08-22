@@ -29,9 +29,30 @@ const Cart: React.FC<{
   }, [setTotal]);
 
   return (
-    <ProductList>
-      <Heading navBackwards={NavigationPage.FAVORITES}>Cart</Heading>
-
+    <ProductList
+      header={<Heading navBackwards={NavigationPage.FAVORITES}>Cart</Heading>}
+      footer={
+        products.length > 0 && (
+          <div className={styles.info}>
+            <p className={styles.total}>
+              Total amount
+              <b>
+                <span>&#36;</span>
+                {total}
+              </b>
+            </p>
+            <Button
+              actions={[() => onCheckingOut(products), () => emptyCart()]}
+              title="Checkout"
+              variant="fancy"
+              className={styles.checkoutButton}
+            >
+              Make a payment
+            </Button>
+          </div>
+        )
+      }
+    >
       {products.length > 0 ? (
         <ul
           className={classNames(styles.list, {
@@ -44,26 +65,6 @@ const Cart: React.FC<{
         </ul>
       ) : (
         <p>Your Cart is empty...</p>
-      )}
-
-      {products.length > 0 && (
-        <div className={styles.info}>
-          <p className={styles.total}>
-            Total amount
-            <b>
-              <span>&#36;</span>
-              {total}
-            </b>
-          </p>
-          <Button
-            actions={[() => onCheckingOut(products), () => emptyCart()]}
-            title="Checkout"
-            variant="fancy"
-            className={styles.checkoutButton}
-          >
-            Make a payment
-          </Button>
-        </div>
       )}
     </ProductList>
   );

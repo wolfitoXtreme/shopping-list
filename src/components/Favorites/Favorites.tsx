@@ -59,14 +59,16 @@ const Favorites: React.FC<ProductsInt> = ({
   ]);
 
   return (
-    <ProductList>
-      <Heading
-        navBackwards={NavigationPage.PRODUCTS}
-        navForwards={NavigationPage.CART}
-      >
-        Favorites List
-      </Heading>
-
+    <ProductList
+      header={
+        <Heading
+          navBackwards={NavigationPage.PRODUCTS}
+          navForwards={NavigationPage.CART}
+        >
+          Favorites List
+        </Heading>
+      }
+    >
       {products.length > 0 ? (
         <ul
           className={classNames(styles.list, {

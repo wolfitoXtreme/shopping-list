@@ -52,10 +52,10 @@
     }
 
     &-title {
-      padding-right: 50px;
       font-size: $font-size-normal;
 
-      @include breakpoint(map-get($breakpoints, medium)) {
+      @include breakpoint(map-get($breakpoints, large)) {
+        padding-right: 50px;
         font-size: $font-size-medium-large;
       }
     }
@@ -166,12 +166,14 @@
 
   &-content {
     padding: 0;
+    width: calc(60% - 15px);
     display: flex;
     flex-flow: column;
     justify-content: space-between;
 
     &-title {
       padding-top: 10px;
+      padding-bottom: 10px;
     }
 
     &-price {
@@ -181,6 +183,14 @@
       display: flex;
       align-items: center;
     }
+  }
+
+  &-info {
+    right: 0;
+    left: auto;
+    padding-right: 0;
+    width: 60%;
+    justify-content: flex-end;
   }
 
   &-favorite-button {
