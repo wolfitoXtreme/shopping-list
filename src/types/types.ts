@@ -26,6 +26,10 @@ export type ProductType = {
   favorite: number;
 };
 
+export type CartProductType = ProductType & {
+  cartAmount?: number;
+};
+
 export interface ProductsInt {
   products: ProductType[];
   pages: PagesType;

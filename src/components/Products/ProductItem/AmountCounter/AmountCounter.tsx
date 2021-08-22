@@ -1,6 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 
-import { ProductType } from '@app/types/types';
+import { CartProductType } from '@app/types/types';
 import { CartContext } from '@app/context/CartContext';
 import { ReactComponent as PlusIcon } from '@app/assets/icons/icon-plus.svg';
 import { ReactComponent as MinusIcon } from '@app/assets/icons/icon-minus.svg';
@@ -10,27 +10,21 @@ import Button from '@app/components/Button/Button';
 import styles from './AmountCounter.module.scss';
 
 const AmountCounter: React.FC<{
-  product: ProductType;
-}> = ({ product }) => {
-  const { removeFromCart } = useContext(CartContext);
-  const [count, setCount] = useState(1);
-
-  const handleIncrease = () => {
-    setCount(count + 1);
-  };
-
-  const handleDecrease = () => {
-    setCount(count - 1);
-    if (count <= 1) {
-      removeFromCart(product);
-      return;
-    }
-  };
+  cartProduct: CartProductType;
+}> = ({ cartProduct }) => {
+  const { handleIncrement } = useContext(CartContext);
 
   return (
     <div className={styles.amountControl}>
       <Button
-        actions={[() => handleDecrease()]}
+        actions={[
+          () => {
+            handleIncrement(
+              cartProduct,
+              (cartProduct.cartAmount as number) - 1
+            );
+          }
+        ]}
         variant="icon"
         className={styles.handlerButton}
         title={'Remove'}
@@ -38,10 +32,22 @@ const AmountCounter: React.FC<{
         <MinusIcon />
       </Button>
 
-      <input type="text" value={count} readOnly onChange={() => {}} />
+      <input
+        type="text"
+        value={cartProduct.cartAmount}
+        readOnly
+        onChange={() => {}}
+      />
 
       <Button
-        actions={[() => handleIncrease()]}
+        actions={[
+          () => {
+            handleIncrement(
+              cartProduct,
+              (cartProduct.cartAmount as number) + 1
+            );
+          }
+        ]}
         variant="icon"
         className={styles.handlerButton}
         title={'Add'}

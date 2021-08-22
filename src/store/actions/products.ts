@@ -1,4 +1,4 @@
-import { ProductType, PagesType } from '@app/types/types';
+import { ProductType, PagesType, CartProductType } from '@app/types/types';
 
 import * as actions from './actions';
 
@@ -40,6 +40,13 @@ export const addFavorite = (value: ProductType) => {
 export const removeFavorite = (value: ProductType) => {
   return {
     type: actions.PRODUCTS_REMOVE_FAVORITE,
+    value: value
+  };
+};
+
+export const checkingOut = (value: CartProductType[]) => {
+  return {
+    type: actions.CHECKING_OUT,
     value: value
   };
 };

@@ -1,6 +1,6 @@
 import * as storeActions from '@store/actions/actions';
 
-import { ProductType, PagesType } from '@app/types/types';
+import { ProductType, PagesType, CartProductType } from '@app/types/types';
 
 const initialState: {
   productsList: { products: ProductType[]; pages: PagesType };
@@ -69,15 +69,15 @@ const reducer = (
   };
 
   const addFavorite = () => {
-    const update = (products: ProductType[], action: any) => {
-      return products.map((item, index) => {
-        if (item.id !== action.value.id) {
+    const update = (products: ProductType[], itemToUpdate: ProductType) => {
+      return products.map((item) => {
+        if (item.id !== itemToUpdate.id) {
           return item;
         }
 
         return {
           ...item,
-          ...action.value
+          ...itemToUpdate
         };
       });
     };
@@ -86,7 +86,7 @@ const reducer = (
       ...state,
       productsList: {
         ...state.productsList,
-        products: update(state.productsList.products, action)
+        products: update(state.productsList.products, action.value)
       },
       favoritesList: {
         ...state.favoritesList,
@@ -96,23 +96,27 @@ const reducer = (
   };
 
   const removeFavorite = () => {
-    const update = (products: ProductType[], action: any, list: string) => {
+    const update = (
+      products: ProductType[],
+      itemToUpdate: ProductType,
+      list: string
+    ) => {
       if (list === 'favorites') {
         return products.filter((item, index) => {
-          if (item.id !== action.value.id) {
-            return item.favorite !== action.value.favorite;
+          if (item.id !== itemToUpdate.id) {
+            return item.favorite !== itemToUpdate.favorite;
           }
           return undefined;
         });
       } else {
         return products.map((item, index) => {
-          if (item.id !== action.value.id) {
+          if (item.id !== itemToUpdate.id) {
             return item;
           }
 
           return {
             ...item,
-            ...action.value
+            ...itemToUpdate
           };
         });
       }
@@ -122,11 +126,46 @@ const reducer = (
       ...state,
       productsList: {
         ...state.productsList,
-        products: update(state.productsList.products, action, 'products')
+        products: update(state.productsList.products, action.value, 'products')
       },
       favoritesList: {
         ...state.favoritesList,
-        products: update(state.favoritesList.products, action, 'favorites')
+        products: update(
+          state.favoritesList.products,
+          action.value,
+          'favorites'
+        )
+      }
+    };
+  };
+
+  const checkingOut = () => {
+    const update = (
+      products: ProductType[],
+      cartProducts: CartProductType[]
+    ) => {
+      const result = products.map((item) => {
+        const cartProduct = cartProducts.find(
+          (cartItem) => cartItem.id === item.id
+        );
+
+        const updatedProduct = {
+          ...item,
+          stock: cartProduct?.cartAmount
+            ? item.stock - cartProduct.cartAmount
+            : item.stock
+        };
+        return cartProduct ? { ...item, ...updatedProduct } : item;
+      });
+
+      return result;
+    };
+
+    return {
+      ...state,
+      productsList: {
+        ...state.productsList,
+        products: update(state.productsList.products, action.value)
       }
     };
   };
@@ -137,7 +176,8 @@ const reducer = (
     [storeActions.PRODUCTS_ADD_FAVORITE]: addFavorite,
     [storeActions.PRODUCTS_REMOVE_FAVORITE]: removeFavorite,
     [storeActions.FAVORITES_LISTING]: listFavorites,
-    [storeActions.FAVORITES_PAGING]: pagingFavorites
+    [storeActions.FAVORITES_PAGING]: pagingFavorites,
+    [storeActions.CHECKING_OUT]: checkingOut
   };
 
   if (typeof runAction[action.type] === 'function') {

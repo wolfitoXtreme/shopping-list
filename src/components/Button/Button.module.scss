@@ -1,16 +1,90 @@
 @import '~@styles/config/variables';
 
+%button {
+  $darken: 8%;
+
+  padding: 4px 8px;
+  font-size: $font-size-small;
+  color: $white;
+  border: 1px solid darken($charcoal, $darken);
+  border-radius: 3px;
+  background-image: linear-gradient(270deg, $nero 0px, $charcoal 100%);
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    border: 1px solid darken($light-black, $darken);
+    background-image: linear-gradient(270deg, $light-black 0px, $nero 100%);
+  }
+
+  &:active {
+    @extend %button-press;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+
+    &:hover,
+    &:active {
+      border: 1px solid darken($charcoal, $darken);
+      background-image: linear-gradient(270deg, $nero 0px, $charcoal 100%);
+    }
+  }
+}
+
+%button-press {
+  transform: scale(0.97);
+}
+
 .icon {
   display: flex;
   border: 0 solid transparent;
   background-color: transparent;
+  cursor: pointer;
+
+  &:active {
+    @extend %button-press;
+  }
 }
 
 .button {
-  padding: 4px 8px;
-  font-size: $font-size-small;
+  @extend %button;
+}
+
+.mixed {
+  @extend %button;
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin: 0 5px 0 -2px;
+    width: 10px;
+    height: auto;
+    display: flex;
+    border: 0 solid transparent;
+    fill: $white;
+    background-color: transparent;
+  }
+}
+
+.fancy {
+  $darken: 8%;
+
+  @extend %button;
+
+  padding: 8px 12px;
+  font-size: $font-size-normal;
   color: $white;
-  border: 1px solid $charcoal;
-  border-radius: 3px;
-  background-image: linear-gradient(270deg, $nero 0px, $charcoal 100%);
+  border-color: darken($flamenco, $darken);
+  background-image: linear-gradient(270deg, $flamenco 0px, $casablanca 100%);
+
+  &:hover,
+  &:active {
+    border-color: darken($flamenco, $darken * 2);
+    background-image: linear-gradient(
+      270deg,
+      darken($flamenco, $darken) 0px,
+      darken($casablanca, $darken) 100%
+    );
+  }
 }

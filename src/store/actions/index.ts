@@ -4,5 +4,6 @@ export {
   listFavorites,
   pagingFavorites,
   addFavorite,
-  removeFavorite
+  removeFavorite,
+  checkingOut
 } from './products';

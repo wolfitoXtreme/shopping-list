@@ -10,11 +10,12 @@
 
 .list-side-bar {
   margin: 0;
+  display: block;
   flex: none;
 }
 
 .info {
-  padding-top: 20px;
+  padding: 20px 0;
   border-top: 1px solid $very-light-grey;
 
   .total {
@@ -29,10 +30,5 @@
 }
 
 .checkout-button {
-  padding: 8px 12px;
   width: 100%;
-  font-size: $font-size-normal;
-  color: $white;
-  border-color: $flamenco;
-  background-image: linear-gradient(270deg, $flamenco 0px, $casablanca 100%);
 }

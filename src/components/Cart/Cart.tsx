@@ -1,8 +1,11 @@
 import React, { useContext, useEffect } from 'react';
+import { connect } from 'react-redux';
 
 import classNames from 'clsx';
 
-import { NavigationPage } from '@app/types/types';
+import { checkingOut } from '@store/actions';
+
+import { CartProductType, NavigationPage } from '@app/types/types';
 import { CartContext } from '@app/context/CartContext';
 import { SideBarContext } from '@app/context/SideBarContext';
 
@@ -13,8 +16,12 @@ import Button from '@app/components/Button/Button';
 
 import styles from './Cart.module.scss';
 
-const Cart: React.FC<{}> = () => {
-  const { cartProducts: products, total, setTotal } = useContext(CartContext);
+const Cart: React.FC<{
+  onCheckingOut: (cartProducts: CartProductType[]) => void;
+}> = ({ onCheckingOut }) => {
+  const { cartProducts: products, emptyCart, total, setTotal } = useContext(
+    CartContext
+  );
   const { isSideBar } = useContext(SideBarContext);
 
   useEffect(() => {
@@ -49,9 +56,9 @@ const Cart: React.FC<{}> = () => {
             </b>
           </p>
           <Button
-            actions={[() => console.log('Checking out...')]}
-            title="Checkoutt"
-            variant="button"
+            actions={[() => onCheckingOut(products), () => emptyCart()]}
+            title="Checkout"
+            variant="fancy"
             className={styles.checkoutButton}
           >
             Make a payment
@@ -62,4 +69,10 @@ const Cart: React.FC<{}> = () => {
   );
 };
 
-export default Cart;
+const mapDispatchToProps = (dispatch: React.Dispatch<any>) => {
+  return {
+    onCheckingOut: (value: CartProductType[]) => dispatch(checkingOut(value))
+  };
+};
+
+export default connect(undefined, mapDispatchToProps)(Cart);

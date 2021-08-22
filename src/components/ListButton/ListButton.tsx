@@ -4,6 +4,8 @@ import { PagesType } from '@app/types/types';
 
 import Button from '@app/components/Button/Button';
 
+import styles from './ListButton.module.scss';
+
 interface ListButtonInt {
   moreResults: (pages: PagesType) => void;
   pages: PagesType;
@@ -26,6 +28,8 @@ const ListButton: React.FC<ListButtonInt> = ({
     <Button
       actions={[() => moreResults({ ...pages, currentPage: currentPage + 1 })]}
       title="Show more products"
+      variant="fancy"
+      className={styles.button}
     >
       Show more
     </Button>

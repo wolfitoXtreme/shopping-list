@@ -157,16 +157,15 @@
     display: flex;
     flex: 0 0 40%;
     overflow: hidden;
-    border-radius: 10px;
 
     img {
       height: fit-content;
+      border-radius: 10px;
     }
   }
 
   &-content {
     padding: 0;
-    height: 100%;
     display: flex;
     flex-flow: column;
     justify-content: space-between;

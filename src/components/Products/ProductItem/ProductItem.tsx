@@ -12,6 +12,7 @@ import { DeviceContext } from '@app/context/DeviceContext';
 import { SideBarContext } from '@app/context/SideBarContext';
 import { CartContext } from '@app/context/CartContext';
 import { ReactComponent as FavoriteIcon } from '@app/assets/icons/icon-favorite.svg';
+import { ReactComponent as PlusIcon } from '@app/assets/icons/icon-plus.svg';
 
 import Button from '@app/components/Button/Button';
 import AmountCounter from '@app/components/Products/ProductItem/AmountCounter/AmountCounter';
@@ -45,6 +46,7 @@ const ProductItem: React.FC<ProductItemInt> = ({
   const { addToCart } = useContext(CartContext);
 
   const isFavorite = Boolean(favorite);
+  const isListStyled: boolean = isSideBar || isCartItem;
 
   const handleAddFavorite = (id: string) => {
     axios
@@ -71,12 +73,12 @@ const ProductItem: React.FC<ProductItemInt> = ({
   return (
     <li
       className={classNames(styles.product, {
-        [styles.productSidebar]: isSideBar || isCartItem
+        [styles.productSidebar]: isListStyled
       })}
     >
       <picture
         className={classNames(styles.productImage, {
-          [styles.productSidebarImage]: isSideBar || isCartItem
+          [styles.productSidebarImage]: isListStyled
         })}
       >
         <img
@@ -90,12 +92,12 @@ const ProductItem: React.FC<ProductItemInt> = ({
 
       <div
         className={classNames(styles.productContent, {
-          [styles.productSidebarContent]: isSideBar || isCartItem
+          [styles.productSidebarContent]: isListStyled
         })}
       >
         <h5
           className={classNames(styles.productContentTitle, {
-            [styles.productSidebarContentTitle]: isSideBar || isCartItem
+            [styles.productSidebarContentTitle]: isListStyled
           })}
         >
           {productName}
@@ -109,7 +111,7 @@ const ProductItem: React.FC<ProductItemInt> = ({
 
         <div
           className={classNames(styles.productContentPrice, {
-            [styles.productSidebarContentPrice]: isSideBar || isCartItem
+            [styles.productSidebarContentPrice]: isListStyled
           })}
         >
           <b>
@@ -118,7 +120,7 @@ const ProductItem: React.FC<ProductItemInt> = ({
           </b>
         </div>
 
-        {isCartItem && <AmountCounter product={product} />}
+        {isCartItem && <AmountCounter cartProduct={product} />}
       </div>
 
       {!isCartItem && (
@@ -144,8 +146,13 @@ const ProductItem: React.FC<ProductItemInt> = ({
             <b className={styles.productInfoStock}>{stock} left</b>
           )}
 
-          <Button actions={[() => addToCart(product)]} title="Add to cart">
-            + add
+          <Button
+            actions={[() => addToCart(product, 1)]}
+            title="Add to cart"
+            variant="mixed"
+            disabled={stock === 0}
+          >
+            <PlusIcon /> add
           </Button>
         </div>
       )}
